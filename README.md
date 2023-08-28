@@ -5,7 +5,7 @@ OPUS is a service that enables you to create your own parametrizable high-qualit
 
 In this tutorial, we'll cover how to randomize different objects at various levels of control.
 
-![Granuality Levels](./OPUSGranualityLevels.jpg)
+![Granuality Levels](OPUS Granuality Levels.jpg)
 
 ## What is a Component?
 
