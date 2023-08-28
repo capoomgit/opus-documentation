@@ -5,7 +5,7 @@ OPUS is a service that enables you to create your own parametrizable high-qualit
 
 In this tutorial, we'll cover how to randomize different objects at various levels of control.
 
-![Granuality Levels](OPUS Granuality Levels.jpg)
+![Granuality Levels](OPUSGranualityLevels.jpg)
 
 ## What is a Component?
 
@@ -56,7 +56,7 @@ Specify your preferred texture resolution using the `texture_resolution` option.
 
 ## Getting Job Results
 
-![Polling](https://ibb.co/W62HLLL)
+![Polling](OPUSPolling.jpg)
 
 We use an asynchronous request pattern. Each **Create Component** or **Create Structure** call will return a job ID, which you can use to check the status of your request.
 
