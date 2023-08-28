@@ -85,3 +85,32 @@ For those looking to delve deeper into the subject of creating components and st
   
 
 
+# Appendix: Change Logs
+
+Throughout our software's development, several pivotal updates have been implemented to enhance functionality, improve user experience, and rectify previous limitations. Here's a summary of some of our most impactful changes along with links to detailed changelog files:
+
+## Change Logs:
+
+### 1. OSM Road Network Support
+- **Date**: [Date of Change, e.g., "2023-08-30"]
+- **Description**: Integrated support for OpenStreetMap (OSM) road networks. This feature allows users to integrate and utilize road network data from OSM within the application.
+- **Detailed Changelog**: [OSM Road Network Support Changelog](ROAD_SUPPORTS.md)
+
+### 2. Update in Job Statuses
+- **Date**: [Date of Change, e.g., "2023-09-05"]
+- **Description**: We've revised the job statuses for clearer, more descriptive feedback. This adjustment facilitates a more intuitive understanding of the job's progress and any potential issues.
+- **Detailed Changelog**: [Update in Job Statuses Changelog](STATUSREFACTOR.md)
+
+### 3. Multistory Building Support
+- **Date**: [Date of Change, "2023-08-11"]
+- **Description**: New functionality supports the design and rendering of multistory buildings. Users can now create and visualize structures with multiple levels, enhancing urban simulation realism.
+- **Detailed Changelog**: [Multistory Building Support Changelog](CHANGELOG.md)
+
+---
+
+To stay updated of the latest features and improvements, we recommend reviewing our change logs regularly.
+
+
+  
+
+
