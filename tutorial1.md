@@ -60,7 +60,7 @@ url = "https://opus5.p.rapidapi.com/create_opus_structure"
 payload = {
     "name": "House",  
     "keywords": {
-        "*": ["one_story"],
+        "*": ["classic"],
         "Window": ["modern"]
     },
     "texture_resolution": "2048"
@@ -129,12 +129,11 @@ print(job_result)
 To customize your 3D model's file extension, you'll utilize the `extensions` property in the payload. The provided schema highlights several potential values:
 
 - `usd`: Pixar's Universal Scene Description format.
-- `glb`: Binary version of the GL Transmission Format (GLTF).
 - `gltf`: JSON-based 3D model format.
 - `fbx`: Autodesk's Filmbox format.
 
-For instance, if you wish to designate the model's extension to `glb`, you would adjust the `extensions` attribute in your request payload as follows:
+For instance, if you wish to designate the model's extension to `fbx`, you would adjust the `extensions` attribute in your request payload as follows:
 ```python
-"extensions": ["glb"]
+"extensions": ["fbx"]
 ```
 
