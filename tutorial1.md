@@ -1,6 +1,6 @@
 ## OPUS API Tutorial: How to Customize and Fetch 3D Models
 
-Welcome to the OPUS API tutorial. In this guide, we'll go through the process of fetching model names, obtaining attributes, customizing a 3D model, and understanding its structure using the provided JSON schema.
+Welcome to the Opus API User Guide! Opus API provides a seamless interface for users to interact with a variety of 3D models. In this guide, we'll go through the process of fetching model names, obtaining attributes, customizing a 3D model, and understanding its structure using the provided JSON schema.
 
 ### **Table of Contents**
 1. Fetch Model Names
@@ -13,10 +13,11 @@ Welcome to the OPUS API tutorial. In this guide, we'll go through the process of
 
 ---
 
-### **1. Fetch Model Names**
+### **1. Fetching Available 3D Model Names**
 
 #### **Endpoint**: `GET /get_model_names`
 
+To begin, you'll need to know which 3D model names are available for customization.
 This endpoint helps retrieve all available models categorized under "Structure" and "Component".
 
 **Python Code**:
@@ -34,7 +35,7 @@ model_names = response.json()
 print(model_names)
 ```
 
-### **2. Get Attributes of a Model**
+### **2. Discovering Customizable Attributes**
 #### **Endpoint:** GET /get_attributes_with_name
 Fetch attributes for your chosen model, which include parameters like "keywords" and specific "parameters".
 
