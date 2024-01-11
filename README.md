@@ -1,111 +1,44 @@
-# Introduction to OPUS
+# Change Log
 
-## What is OPUS?
-OPUS is a service that enables you to create your own parametrizable high-quality 3D assets for use in simulations, games, or any other application. We offer many configurations and multi degrees-of-freedom. Our endpoints are designed for granular configurations, but we also support controlled-randomization for those who want to randomize parameters easily.
+All changes to OPUS are documented here.
 
-In this tutorial, we'll cover how to randomize different objects at various levels of control.
+## \[0.2.3] - 2023-08-11
 
-![Granuality Levels](OPUSGranualityLevels.jpg)
+### Added
 
-## What is a Component?
+* Introducing support for multi-floor buildings, including Apartment and Shop structures.
+* OpenStreetMap (OSM) houses are now randomly assigned as Apartments, Shops, or Houses. Further control over this feature will be available in future versions.
+* Introducing the Road structure, enabling the generation of random road networks with XODR and FBX output formats. An in-depth documentation can be found in [here](road\_supports.md) and Unreal Engine (UE) materials for roads can be downloaded from [here](https://drive.google.com/file/d/1wv0\_EHfYJGfHfEpv1x3QV50m9NI4kc7e/view?usp=sharing).
+* Implemented a color system for materials, enhancing visual variety across our structures.
+* Added the new `/get_attributes_with_name` endpoint that has more comprehensive result. More information can be found here.
+* Improved error messaging for client-side errors, addressing previously ambiguous cases.
 
-### Definition:
-A component refers to an individual or standalone part that can be used to build or assemble larger objects.
+### Changed
 
-### Key Points:
-- **Granularity**: Components are often smaller elements with a specific purpose or function.
-- **Independence**: They can exist independently or be integrated into larger structures.
-- **Examples**: Windows, doors, stairs, antennas, fire hydrants, and parking meters.
-- **Function**: Components typically serve specific roles. For instance, a door allows for entry and exit, while a window lets in light.
+* The extension list is now a mandatory field for `/create_house_with_floor_input`, `/create_opus_structure`, and `/create_opus_component` endpoints.
 
-## What is a Structure?
+### Fixed
 
-### Definition:
-A structure refers to a more complex assembly made up of multiple components. It represents a higher-level entity that houses various components in an organized manner.
+* Resolved a bug related to parameters being provided outside their valid ranges.
 
-### Key Points:
-- **Complexity**: Structures are comprehensive entities comprising multiple components.
-- **Composition**: By nature, structures combine multiple components. For example, a house may include windows, doors, and stairs.
-- **Examples**: A house is a primary example of a structure in the context of 3D modeling.
-- **Purpose**: Structures often serve broader purposes. A house, for example, provides shelter, while its components serve specific functions within that shelter.
+## \[0.2.0] - 2023-06-16
 
-To put it succinctly, while components are individual parts or elements that can be used independently or as part of larger assemblies, structures are those larger entities that group and organize multiple components. Grasping this distinction is essential for effective 3D design, especially when using a tool like OPUS.
+### Added
 
-## Getting all supported objects
-Use the **Get All Model Names** endpoint to retrieve a list of currently available models. Models are divided into two categories: "Structure" and "Component". Structures are larger objects comprising multiple components.
+\-`/create_house_with_floor_input` endpoint has been added to create houses with footprints from the given OSM file. These houses can optionally be placed onto the terrain provided by the user. A tutorial for this endpoint can be found in OPUSOSM file.
 
-## Getting Model Attributes
-After choosing your desired model, use the **Get Attributes of a Model** endpoint to retrieve its attributes, which are divided into "keywords" and "parameters".
+* Added I/O support for .glb, .gltf and .fbx file extensions to all of the generation endpoints. (FBX currently does not support transparent materials such as glass)
+* Added output of all parameters in a JSON file called `opus_output.json`.
+* Added `/create_opus_batch_component` and `/create_opus_batch_structure` endpoints that will create X amount of structures and components with one call. (There is a maximum limit of 10 in this version.)
 
-## Creating a Structure
-You can request either a fully or partially randomized structure using the **Create Structure** endpoint. 
+### Changed
 
-- For a totally randomized "House" with simple window components.
-- For a large "House" with all large components.
-- For more specific structures, like a generally small "House" but with large windows.
-  
-You can also specify exact parameter values.
+\-`/create_house_with_floor_input` and batch job endpoints will now return a list of results from the `/get_opus_job_result` endpoint. Warnings will be also provided upon submitting a `/create_house_with_floor_input` job, if there are any.
 
-## Create Components
-Components are the smaller objects that constitute a structure. Like structures, components can also be created by controlling either keywords, parameters, or both.
+### Fixed
 
-For example, to create a window with specific dimensions.
-
-## Texture Resolution
-Specify your preferred texture resolution using the `texture_resolution` option. Options include 1024, 2048, and 4096.
-
-## Getting Job Results
-
-![Polling](OPUSPolling.jpg)
-
-We use an asynchronous request pattern. Each **Create Component** or **Create Structure** call will return a job ID, which you can use to check the status of your request.
-
-Job statuses include:
-- **PENDING**: Job hasn't started.
-- **IN_PROGRESS**: Job is currently in process.
-- **COMPLETED**: Job has finished successfully.
-- **FAILED**: Job has failed.
-- **CANCELLED**: Job has been cancelled.
-
-In the event of a failure, please provide the timestamp of the request and contact [genel@capoom.com](mailto:genel@capoom.com) for a quota increase.
-
-Please begin polling status after a 30-second wait for structures and 15 seconds for components. Download links expire in 24 hours, so caching is recommended for frequent access.
-
-**Happy developing with our OPUS APIs!** For support and suggestions, please email [genel@capoom.com](mailto:genel@capoom.com).
-
-
-# Appendix: Additional Tutorials
-
-For those looking to delve deeper into the subject of creating components and structures, the following tutorials provide comprehensive insights, starting from the basics (A) to the advanced techniques (Z).
-
-## Tutorials:
-
-1. **Fundamentals of Creating Components and Structures**
-   - [Creating Models from A-Z](tutorial1.md)
-  
-
-
-# Appendix: Change Logs
-
-Throughout our software's development, several pivotal updates have been implemented to enhance functionality, improve user experience, and rectify previous limitations. Here's a summary of some of our most impactful changes along with links to detailed changelog files:
-
-## Change Logs:
-
-### 1. OSM Road Network Support
-- **Date**: 2023-06-16
-- **Description**: Integrated support for OpenStreetMap (OSM) road networks. This feature allows users to integrate and utilize road network data from OSM within the application.
-- **Detailed Changelog**: [OSM Road Network Support Changelog](ROAD_SUPPORTS.md)
-
-### 2. Multistory Building Support
-- **Date**: 2023-08-11
-- **Description**: New functionality supports the design and rendering of multistory buildings. Users can now create and visualize structures with multiple levels, enhancing urban simulation realism.
-- **Detailed Changelog**: [Multistory Building Support Changelog](CHANGELOG.md)
-
----
-
-To stay updated of the latest features and improvements, we recommend reviewing our change logs regularly.
-
-
-  
-
-
+* Handled invalid/empty job ids that were throwing an internal server error.
+* Fixed cases where GarageDoor, Stair, Mailbox, and Antenna assets were sometimes giving empty outputs.
+* Fixed the cases where window had no materials on some part of the model.
+* Resolved an issue causing job failure when parameters contained empty or invalid keys.
+* Introduced an error message for instances when the specified parameter does not exist.
