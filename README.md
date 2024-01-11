@@ -1,44 +1,66 @@
-# Change Log
+# 🖐 Home
 
-All changes to OPUS are documented here.
+## Introduction to OPUS
 
-## \[0.2.3] - 2023-08-11
+<figure><img src=".gitbook/assets/image.png" alt="" width="125"><figcaption></figcaption></figure>
 
-### Added
+### What is OPUS?
 
-* Introducing support for multi-floor buildings, including Apartment and Shop structures.
-* OpenStreetMap (OSM) houses are now randomly assigned as Apartments, Shops, or Houses. Further control over this feature will be available in future versions.
-* Introducing the Road structure, enabling the generation of random road networks with XODR and FBX output formats. An in-depth documentation can be found in [here](road\_supports.md) and Unreal Engine (UE) materials for roads can be downloaded from [here](https://drive.google.com/file/d/1wv0\_EHfYJGfHfEpv1x3QV50m9NI4kc7e/view?usp=sharing).
-* Implemented a color system for materials, enhancing visual variety across our structures.
-* Added the new `/get_attributes_with_name` endpoint that has more comprehensive result. More information can be found here.
-* Improved error messaging for client-side errors, addressing previously ambiguous cases.
+OPUS is a service that enables you to create your own parametrizable high-quality 3D assets for use in simulations, games, or any other application. We offer many configurations and multi degrees-of-freedom. Our endpoints are designed for granular configurations, but we also support controlled-randomization for those who want to randomize parameters easily.
 
-### Changed
+In this tutorial, we'll cover how to randomize different objects at various levels of control.
 
-* The extension list is now a mandatory field for `/create_house_with_floor_input`, `/create_opus_structure`, and `/create_opus_component` endpoints.
+![Granuality Levels](.gitbook/assets/OPUSGranualityLevels.jpg)
 
-### Fixed
 
-* Resolved a bug related to parameters being provided outside their valid ranges.
 
-## \[0.2.0] - 2023-06-16
 
-### Added
 
-\-`/create_house_with_floor_input` endpoint has been added to create houses with footprints from the given OSM file. These houses can optionally be placed onto the terrain provided by the user. A tutorial for this endpoint can be found in OPUSOSM file.
+### What is a Component?
 
-* Added I/O support for .glb, .gltf and .fbx file extensions to all of the generation endpoints. (FBX currently does not support transparent materials such as glass)
-* Added output of all parameters in a JSON file called `opus_output.json`.
-* Added `/create_opus_batch_component` and `/create_opus_batch_structure` endpoints that will create X amount of structures and components with one call. (There is a maximum limit of 10 in this version.)
+#### Definition:
 
-### Changed
+A component refers to an individual or standalone part that can be used to build or assemble larger objects.
 
-\-`/create_house_with_floor_input` and batch job endpoints will now return a list of results from the `/get_opus_job_result` endpoint. Warnings will be also provided upon submitting a `/create_house_with_floor_input` job, if there are any.
+#### Key Points:
 
-### Fixed
+* **Granularity**: Components are often smaller elements with a specific purpose or function.
+* **Independence**: They can exist independently or be integrated into larger structures.
+* **Examples**: Windows, doors, stairs, antennas, fire hydrants, and parking meters.
+* **Function**: Components typically serve specific roles. For instance, a door allows for entry and exit, while a window lets in light.
 
-* Handled invalid/empty job ids that were throwing an internal server error.
-* Fixed cases where GarageDoor, Stair, Mailbox, and Antenna assets were sometimes giving empty outputs.
-* Fixed the cases where window had no materials on some part of the model.
-* Resolved an issue causing job failure when parameters contained empty or invalid keys.
-* Introduced an error message for instances when the specified parameter does not exist.
+### What is a Structure?
+
+#### Definition:
+
+A structure refers to a more complex assembly made up of multiple components. It represents a higher-level entity that houses various components in an organized manner.
+
+#### Key Points:
+
+* **Complexity**: Structures are comprehensive entities comprising multiple components.
+* **Composition**: By nature, structures combine multiple components. For example, a house may include windows, doors, and stairs.
+* **Examples**: A house is a primary example of a structure in the context of 3D modeling.
+* **Purpose**: Structures often serve broader purposes. A house, for example, provides shelter, while its components serve specific functions within that shelter.
+
+To put it succinctly, while components are individual parts or elements that can be used independently or as part of larger assemblies, structures are those larger entities that group and organize multiple components. Grasping this distinction is essential for effective 3D design, especially when using a tool like OPUS.
+
+###
+
+## Appendix: Additional Tutorials
+
+For those looking to delve deeper into the subject of creating components and structures, the following tutorials provide comprehensive insights, starting from the basics (A) to the advanced techniques (Z).
+
+### Tutorials:
+
+1. **Fundamentals of Creating Components and Structures**
+   * [Creating Models from A-Z](tutorial1.md)
+
+## Appendix: Change Logs
+
+Throughout our software's development, several pivotal updates have been implemented to enhance functionality, improve user experience, and rectify previous limitations. Here's a summary of some of our most impactful changes along with links to detailed changelog files:
+
+###
+
+***
+
+To stay updated of the latest features and improvements, we recommend reviewing our change logs regularly.
