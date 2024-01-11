@@ -16,6 +16,28 @@ All changes to OPUS are documented here.
 ### Changed
 
 * The extension list is now a mandatory field for `/create_house_with_floor_input`, `/create_opus_structure`, and `/create_opus_component` endpoints.
+*   Job Status Changes
+
+    ## Previous Job Statuses
+
+    Our old statuses were as follows:
+
+    * `PENDING`: The job was in queue, waiting to be processed.
+    * `IN_PROGRESS`: The job was currently being processed.
+    * `COMPLETED`: The job finished successfully.
+    * `FAILED`: The job encountered an error and could not complete.
+    * `CANCELLED`: The job was cancelled by the user or system.
+
+    ## Updated Job Statuses
+
+    Our new statuses provide more detail and are now as follows:
+
+    * `Queued`: The job is in the queue, waiting for assignment.
+    * `Pending`: The job is waiting for its dependencies to be satisfied.
+    * `Running`: The job is currently in progress.
+    * `Completed`: The job has successfully finished.
+    * `Suspended`: The job is on hold or temporarily stopped.
+    * `Failed`: The job encountered an error and could not complete.
 
 ### Fixed
 
@@ -30,6 +52,27 @@ All changes to OPUS are documented here.
 * Added I/O support for .glb, .gltf and .fbx file extensions to all of the generation endpoints. (FBX currently does not support transparent materials such as glass)
 * Added output of all parameters in a JSON file called `opus_output.json`.
 * Added `/create_opus_batch_component` and `/create_opus_batch_structure` endpoints that will create X amount of structures and components with one call. (There is a maximum limit of 10 in this version.)
+
+
+
+*   With version 0.2.0, OPUS now supports creating houses from OSM footprints and placing the generated houses onto a terrain provided by the user. In this tutorial, we will go over the usage of this new endpoint: `/create_house_with_floor_input`.
+
+    This endpoint contains 2 additional fields compared to `/create_opus_structure`:
+
+    * `floor_file` **(Required)**
+    * `ground_file` _(Optional)_
+
+    The `floor_file` currently accepts files with .osm extensions, while `ground_file` accepts .obj files. Please note that these are subject to change and should be verified in the API schema.
+
+    ## There are some preset limits and rules for the osm\_file:
+
+    * Footprints with any tag indicating that it is not a residential building won't be created.
+    * Houses that have footprints larger than 650m^2 won't be created.
+    * The OSM file should not contain more than 100 footprints.
+    * If there are two footprints closer than 2m on any side to each other in the OSM file and a `ground_file` is provided, meshes may overlap in the `ground_file` output.
+    * Ground file and floor file positions should match each other.
+
+    If any keywords/parameters are provided to this endpoint, all of the houses will inherit them as they would normally do in the `/create_opus_structure` or `/create_opus_component` endpoints.
 
 ### Changed
 
