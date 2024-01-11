@@ -2,6 +2,8 @@
 
 All changes to OPUS are documented here.
 
+## \[0.6.0] - \~
+
 ## \[0.2.3] - 2023-08-11
 
 ### Added

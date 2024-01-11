@@ -103,9 +103,7 @@ For those looking to delve deeper into the subject of creating components and st
 1. **Fundamentals of Creating Components and Structures**
    * [Creating Models from A-Z](how-to/endpoints.md)
 
-## Appendix: Change Logs
 
-Throughout our software's development, several pivotal updates have been implemented to enhance functionality, improve user experience, and rectify previous limitations. Here's a summary of some of our most impactful changes along with links to detailed changelog files:
 
 ###
 

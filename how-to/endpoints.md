@@ -12,6 +12,8 @@ Pick any model name from **Get All Model Names** endpoint. -> Then check customi
 
 ## **Endpoint**: `GET /get_model_names`
 
+`Returns: All available model names in JSON format.`
+
 To begin, you'll need to know which 3D model names are available for customization. This endpoint helps retrieve all available models categorized under "Structure" and "Component".
 
 **Python Code**:
@@ -32,14 +34,16 @@ print(model_names)
 
 ## **2. Discovering Customizable Attributes**
 
-### **Endpoint:** GET /get\_attributes\_with\_name
+### **Endpoint:** `GET /get_attributes_with_name`
+
+`Returns: All attributes of requested model. Components, assets, tags, parameter presets and parameters in JSON format.`
 
 Fetch attributes for your chosen model, which include parameters like "keywords" and specific "parameters".
 
 **Python Code:**
 
 ```url
-querystring = {"name": "House"}  # Replace with your desired model name
+querystring = {"name": "Sofa"}  # Replace with your desired model name
 
 response = requests.get(url, headers=headers, params=querystring)
 model_attributes = response.json()
@@ -50,9 +54,11 @@ print(model_attributes)
 
 After deciding on the attributes, you can customize and create your 3D model.
 
-### **a. Create Structure**
+### ~~**a. Create Structure**~~
 
-#### **Endpoint**: `POST /create_opus_structure`
+### ~~**Endpoint**: `POST /create_opus_structure`~~
+
+`This endpoint is disabled temporarily. Results might be not correct!`
 
 **Python Code**:
 
@@ -74,9 +80,13 @@ print(created_structure)
 
 ### **b. Create Component**
 
-#### **Endpoint**: `POST /create_opus_component`
+### **Endpoint**: `POST /create_opus_component`
 
-Use this endpoint to create a component based on the desired attributes. Here's a Python code example to help you understand the process:
+`Returns: An Job UUID.`
+
+Use this endpoint to create a component based on the desired attributes. Here's Python code examples to help you understand the process:
+
+#### <mark style="color:yellow;">Example #1 - Create a Window with 3 meter width and 1 meter height</mark>
 
 ```python
 import requests
@@ -85,7 +95,7 @@ url = "https://opus5.p.rapidapi.com/create_opus_component"
 payload = {
     "name": "Window",
     "texture_resolution": "1024",
-    "extensions": ["usd"],
+    "extensions": ["usd"], # Multiple extensions are also supported eg; ["usd","fbx"]
     "parameters": {
         "window_outer_frame_gen/frame_width": 3,
         "window_outer_frame_gen/frame_height": 1
@@ -103,11 +113,17 @@ created_component = response.json()
 print(created_component)
 ```
 
+#### <mark style="color:yellow;">Example #2 - Create a small Sofa</mark>
+
+#### <mark style="color:yellow;">Example #3 - Create a modern Sofa with 2 meter width</mark>
+
 ## **4. Checking the Job Result**
 
 Once the model is created, you can poll for the job result using the returned UUID from the creation step.
 
 ### **Endpoint**: `GET /get_opus_job_result`
+
+`Returns: Job Status and download links.`
 
 **Python Code**:
 
@@ -127,7 +143,7 @@ job_result = response.json()
 print(job_result)
 ```
 
-## **5. How to Change Model Extension**
+## **Extensions**
 
 To customize your 3D model's file extension, you'll utilize the `extensions` property in the payload. The provided schema highlights several potential values:
 
