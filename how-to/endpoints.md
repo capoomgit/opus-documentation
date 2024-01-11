@@ -58,7 +58,9 @@ After deciding on the attributes, you can customize and create your 3D model.
 
 ### ~~**Endpoint**: `POST /create_opus_structure`~~
 
-`This endpoint is disabled temporarily. Results might be not correct!`
+{% hint style="info" %}
+This endpoint is disabled temporarily.&#x20;
+{% endhint %}
 
 **Python Code**:
 
