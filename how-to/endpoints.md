@@ -153,7 +153,7 @@ payload = {
     "extensions": ["usd"], # Multiple extensions are also supported eg; ["usd","fbx"]
     "parameters":{
         "furniture_sofa_layouts_modular/sofa_modular_overall_width":2
-    }
+    },
     "keywords":{
         "*":["modern"]
     }
