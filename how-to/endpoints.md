@@ -88,7 +88,7 @@ print(created_structure)
 
 Use this endpoint to create a component based on the desired attributes. Here's Python code examples to help you understand the process:
 
-#### <mark style="color:yellow;">Example #1 - Create a Window with 3 meter width and 1 meter height</mark>
+#### <mark style="color:yellow;">Example #1 - Create a Window with 1 meter width and 2 meter height</mark>
 
 ```python
 import requests
@@ -99,8 +99,8 @@ payload = {
     "texture_resolution": "1024",
     "extensions": ["usd"], # Multiple extensions are also supported eg; ["usd","fbx"]
     "parameters": {
-        "window_outer_frame_gen/frame_width": 3,
-        "window_outer_frame_gen/frame_height": 1
+        "window_outer_frame_gen/frame_width": 1,
+        "window_outer_frame_gen/frame_height": 2
     }
 }
 
@@ -117,7 +117,58 @@ print(created_component)
 
 #### <mark style="color:yellow;">Example #2 - Create a small Sofa</mark>
 
+```python
+import requests
+
+url = "https://opus5.p.rapidapi.com/create_opus_component"
+payload = {
+    "name": "Sofa",
+    "texture_resolution": "1024",
+    "extensions": ["usd"], # Multiple extensions are also supported eg; ["usd","fbx"]
+    "keywords":{
+        "*"=["small"]
+    }
+}
+
+headers = {
+    "content-type": "application/json",
+    "X-RapidAPI-Key": "YOUR_API_KEY",
+    "X-RapidAPI-Host": "opus5.p.rapidapi.com"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+created_component = response.json()
+print(created_component)
+```
+
 #### <mark style="color:yellow;">Example #3 - Create a modern Sofa with 2 meter width</mark>
+
+```python
+import requests
+
+url = "https://opus5.p.rapidapi.com/create_opus_component"
+payload = {
+    "name": "Sofa",
+    "texture_resolution": "1024",
+    "extensions": ["usd"], # Multiple extensions are also supported eg; ["usd","fbx"]
+    "parameters":{
+        "furniture_sofa_layouts_modular/sofa_modular_overall_width":2
+    }
+    "keywords":{
+        "*"=["modern"]
+    }
+}
+
+headers = {
+    "content-type": "application/json",
+    "X-RapidAPI-Key": "YOUR_API_KEY",
+    "X-RapidAPI-Host": "opus5.p.rapidapi.com"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+created_component = response.json()
+print(created_component)
+```
 
 ## **4. Checking the Job Result**
 
