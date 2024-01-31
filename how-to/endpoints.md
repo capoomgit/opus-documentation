@@ -126,7 +126,7 @@ payload = {
     "texture_resolution": "1024",
     "extensions": ["usd"], # Multiple extensions are also supported eg; ["usd","fbx"]
     "keywords":{
-        "*"=["small"]
+        "*":["small"]
     }
 }
 
@@ -155,7 +155,7 @@ payload = {
         "furniture_sofa_layouts_modular/sofa_modular_overall_width":2
     }
     "keywords":{
-        "*"=["modern"]
+        "*":["modern"]
     }
 }
 
