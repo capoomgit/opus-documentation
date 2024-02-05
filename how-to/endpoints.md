@@ -88,19 +88,20 @@ print(created_structure)
 
 Use this endpoint to create a component based on the desired attributes. Here's Python code examples to help you understand the process:
 
-#### <mark style="color:yellow;">Example #1 - Create a Window with 1 meter width and 2 meter height</mark>
+#### <mark style="color:yellow;">Example #1 - Create a Table with 1.2 meter width and .95 meter depth</mark>
 
 ```python
 import requests
 
 url = "https://opus5.p.rapidapi.com/create_opus_component"
 payload = {
-    "name": "Window",
+    "name": "Table",
     "texture_resolution": "1024",
     "extensions": ["usd"], # Multiple extensions are also supported eg; ["usd","fbx"]
     "parameters": {
-        "window_outer_frame_gen/frame_width": 1,
-        "window_outer_frame_gen/frame_height": 2
+        "furniture_table_layouts_rectangle/rectangle_table_height":0.75, 
+        "furniture_table_layouts_rectangle/rectangle_table_top_width":1.2,
+        "furniture_table_layouts_rectangle/rectangle_table_top_depth":0.95,
     }
 }
 
