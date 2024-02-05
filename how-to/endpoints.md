@@ -101,7 +101,7 @@ payload = {
     "parameters": {
         "furniture_table_layouts_rectangle/rectangle_table_height":0.75, 
         "furniture_table_layouts_rectangle/rectangle_table_top_width":1.2,
-        "furniture_table_layouts_rectangle/rectangle_table_top_depth":0.95,
+        "furniture_table_layouts_rectangle/rectangle_table_top_depth":0.95
     }
 }
 
